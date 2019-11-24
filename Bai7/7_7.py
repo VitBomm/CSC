@@ -11,7 +11,7 @@ dictionary = {'work': ['công việc', 'việc làm', 'tác phẩm'], 'bark': ['
 # Chương trình thực hiện các công việc:
 i = 1
 while i == 1:    
-    cv = int(input('Bạn muốn làm gì? 1: Hiển thị từ điển; 2: Tra từ, 3: Thêm từ, 4: Xóa từ\t'))
+    cv = int(input('Bạn muốn làm gì? 1: Hiển thị từ điển; 2: Tra từ tiếng Anh, 5: Tra từ tiếng Việt, 3: Thêm từ, 4: Xóa từ\t'))
 
     # Hiển thị từ điển, và cho biết trong từ điển hiện tại có bao nhiêu từ?
     if cv == 1:
@@ -30,6 +30,23 @@ while i == 1:
         else:
             print("Không tìm thấy")
 
+    # - Tìm kiếm từ tiếng Viet=> nếu tìm thấy thì hiển thị key và value.
+    #  Nếu không tìm thấy thì thông báo không tìm thấy
+    elif cv == 5:
+        name_search = input('Nhập từ cần tra:\t')
+        flag = 0
+        for key, value in dictionary.items():
+            if flag == 1:
+                break
+            for i in value:
+                if i == name_search:
+                    flag = 1
+                    print("%s\t%s" % (key,value))
+                    break
+        if flag == 0:
+            print("Không tìm thấy value.")
+    
+
     # Thêm từ vào từ điển, Hiển thị từ điển sau khi thêm 
     elif cv == 3:
         word = input('Nhập từ Anh:\t')
@@ -38,6 +55,7 @@ while i == 1:
             print("đã tồn tại từ trong Dictionary")
         else:
             dictionary[word] = meaning
+
     
     
 
